@@ -5,6 +5,10 @@ import PyPDF2
 import os
 import logging
 import google.generativeai as genai
+from dotenv import load_dotenv  # Import the load_dotenv function
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -18,12 +22,15 @@ os.makedirs(app.config['MODIFIED_FOLDER'], exist_ok=True)
 # Set up logging for debugging
 logging.basicConfig(level=logging.DEBUG)
 
-# Set up Google API key
-GOOGLE_API_KEY = 'AIzaSyBwXKpzS2syulUlt_OghvgoJkstPsRE70k'  # Replace with your actual API key
-genai.configure(api_key=GOOGLE_API_KEY)
+# Retrieve the API key from environment variable
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')  # Access the key securely
+if not GOOGLE_API_KEY:
+    raise ValueError("Google API key not found. Please set it in the .env file.")
 
-# Create a GenerativeModel instance
+# Configure the Google Generative AI client
+genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel("gemini-1.5-flash")
+
 
 # Store debug messages
 debug_messages = []

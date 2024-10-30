@@ -1,13 +1,25 @@
-# GitHub Codespaces ♥️ Flask
+# Smart Document Enhancer
 
-Welcome to your shiny new Codespace running Flask! We've got everything fired up and running for you to explore Flask.
+This Flask application allows users to upload documents (PDF or DOCX) and modify the content based on a specified topic while preserving the original formatting and structure.
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+## Features
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+- Upload PDF or DOCX files.
+- Replace content under titles with new content based on a specified topic.
+- Maintain original formatting and layout.
+- Download the modified document.
 
-To run this application:
+## Technologies Used
 
-```
-flask --debug run
-```
+- Flask: A micro web framework for Python.
+- Python-docx: For reading and writing DOCX files.
+- PyPDF2: For reading PDF files.
+- Google Generative AI: For content generation based on user input.
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/your-repo.git
+   cd your-repo
